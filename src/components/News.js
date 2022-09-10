@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import NewsItem from "./NewsItem";
 import Spinner from "./Spinner";
 import PropTypes from "prop-types";
-
 export class News extends Component {
   static defaultProps = {
     country: "us",
@@ -16,17 +15,18 @@ export class News extends Component {
     category: PropTypes.string,
   };
 
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       articles: [],
       loading: false,
       page: 1,
     };
+    document.title = `${this.props.category} - NewsMonkey`
   }
 
   async updateNews() {
-    const api_url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apikey=65f151cd083e44db842f1648eb270264&page=${this.state.page}&pagesize=${this.props.pageSize}`;
+    const api_url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apikey=${this.props.apiKey}&page=${this.state.page}&pagesize=${this.props.pageSize}`;
 
     // Fetch API url leti hai or return krti hai promise
     let data = await fetch(api_url);
@@ -62,7 +62,7 @@ export class News extends Component {
   render() {
     return (
       <div className="container my-3">
-        <h1 className="text-center text-primary">News Web - Top Headlines</h1>
+        <h1 className="text-center text-primary">News Web - Top Headlines {this.props.category}</h1>
         {this.state.loading && <Spinner />}
 
         <div className="row">
