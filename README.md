@@ -1,6 +1,5 @@
 ## News Web using class based component.
 
-# Screenshots :
 <img width="960" alt="image" src="https://user-images.githubusercontent.com/50498182/189523038-0a6a0b35-05e3-43ee-a7ca-419b04148b8a.png">
 
 <img width="960" alt="image" src="https://user-images.githubusercontent.com/50498182/189523045-8c7167bc-720b-4063-8d68-2e5f69296ec4.png">
